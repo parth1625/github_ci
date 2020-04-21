@@ -33,7 +33,7 @@ jobs:
     name: Deploy to EC2
     steps:
     - name: SSH Remote command
-      uses: ./ 
+      uses: parth1625/github_ci@v1
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.KEY }}
