@@ -31,11 +31,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to EC2
-    with:
-      host: ${{ secrets.HOST }}
-      key: ${{ secrets.KEY }}
-      script: |
-        pwd
-        ls 
+    steps:
+    - name: SSH Remote command 
+      with:
+        host: ${{ secrets.HOST }}
+        key: ${{ secrets.KEY }}
+        script: |
+          pwd
+          ls 
 
 
