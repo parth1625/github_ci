@@ -32,7 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to EC2
     steps:
-    - name: SSH Remote command 
+    - name: SSH Remote command
+      uses: actions/ssh-action@v1 
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.KEY }}
