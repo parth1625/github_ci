@@ -33,7 +33,7 @@ jobs:
     name: Deploy to EC2
     steps:
     - name: SSH Remote command
-      uses: actions/ssh-action@v1 
+      uses: actions/checkout@v2 
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.KEY }}
