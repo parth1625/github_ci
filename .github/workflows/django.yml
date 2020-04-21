@@ -41,7 +41,7 @@ jobs:
         # password: ${{ secrets.PASSWORD }}
         script: |
           pwd
-          cd /var/www/givtexamjobs
+          cd /var/www/govtexamjobs
           ls -a
 
 
