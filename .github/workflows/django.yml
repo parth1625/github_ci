@@ -39,6 +39,6 @@ jobs:
         key: ${{ secrets.KEY }}
         script: |
           pwd
-          ls 
+          ls -a
 
 
