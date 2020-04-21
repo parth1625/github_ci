@@ -31,13 +31,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy to EC2
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Push to EC2
-      run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@13.232.25.43 pwd
-
+    with:
+      host: ${{ secrets.HOST }}
+      key: ${{ secrets.KEY }}
+      script: |
+        pwd
+        ls 
 
 
