@@ -64,4 +64,6 @@ jobs:
 
       - name: makemigrations
         run: |
-          ls
+          source antenv/bin/activate
+          python manage.py makemigrations
+          python manage.py migrate
