@@ -61,3 +61,8 @@ jobs:
           app-name: 'djangoapp123'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ACCEE64F82274E30B2CDF27115781E05 }}
+
+      - name: makemigrations
+        run: |
+          python manage.py makemigrations
+          python manage.py migrate
