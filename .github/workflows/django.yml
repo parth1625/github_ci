@@ -27,20 +27,29 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+      
 
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy to EC2
-    steps:
-    - name: SSH Remote command
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        key: ${{ secrets.KEY }}
-        username: ${{ secrets.USERNAME }}
-        # password: ${{ secrets.PASSWORD }}
-        script: |
-          pwd
-          ls 
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
 
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
 
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
+
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   name: Deploy to EC2
+  #   steps:
+  #   - name: SSH Remote command
+  #     uses: appleboy/ssh-action@master
+  #     with:
+  #       host: ${{ secrets.HOST }}
+  #       key: ${{ secrets.KEY }}
+  #       username: ${{ secrets.USERNAME }}
+  #       # password: ${{ secrets.PASSWORD }}
+  #       script: |
+  #         pwd
+  #         ls
